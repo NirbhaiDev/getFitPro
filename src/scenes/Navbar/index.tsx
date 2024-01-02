@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Logo from '@/assets/Logo.png'
+import Link from "./Link";
 
 
-type Props = {}
+type Props = {
+  selectedPage: string;
+  setSelectedPage: (value: string) => void;
+}
 
-const Navbar = (props: Props) => {
+const Navbar = ({selectedPage, setSelectedPage}: Props) => {
 
 const flexBetween = "flex items-center justify-between";
 
@@ -17,10 +21,29 @@ const flexBetween = "flex items-center justify-between";
         </div>
         <div className={`${flexBetween} w-full`}>
            <div className={`${flexBetween} gap-8 text-sm`}>
-              <p>Home</p>
-              <p>Dashboard</p>
-              <p>Our Classes</p>
-              <p>Contact Us</p>
+            <Link 
+              page={'Home'}
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+             />
+            <Link 
+               page={'Dashboard'}
+               selectedPage={selectedPage}
+               setSelectedPage={setSelectedPage}
+             />
+            <Link 
+              page={'Our Classes'} 
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+             page={'Contact Us'}
+             selectedPage={selectedPage}
+             setSelectedPage={setSelectedPage}
+              />
+              
+              
+              
            </div>
            <div className={`${flexBetween} gap-8`}>
              <button>Become a Member</button>
